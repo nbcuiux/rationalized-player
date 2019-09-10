@@ -1,0 +1,36 @@
+
+
+.cover-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-size: cover;
+	transform: scale3d(1,1,1);
+
+	// img {
+	// 	display: block;
+	// 	width: 100%;
+	// 	height: 100%;
+	// 	object-fit: cover;
+	// }
+
+	transition: opacity 0.5s;
+
+	&-enter {
+		opacity: 1;
+	}
+
+	&-enter-active {
+		opacity: 0;
+	}
+
+	&-leave {
+		opacity: 0;
+	}
+
+	&-leave-active {
+		opacity: 0; 
+	}
+}

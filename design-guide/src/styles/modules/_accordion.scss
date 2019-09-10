@@ -1,0 +1,72 @@
+
+.accordion {
+	border-top: 1px solid #c7deef;
+}
+
+.accordion-item {
+	border-bottom: 1px solid #DDD;
+	border-bottom: 1px solid #c7deef;
+    border-top: 1px solid #fff;
+	position: relative;
+	overflow: hidden;
+}
+
+.accordion-caret {
+	position: absolute;
+	right: 10px;
+	top: 0px;
+	font-size: 26px;
+	@include transition(transform ease-in 0.2s, color 0.4s, opacity 0.4s);
+	@include display(flex);
+	@include align-items(center);
+	height: 100%;
+	stroke: $color-hilight;
+	stroke-width: 1.5px;
+	fill: transparent;
+	@include transform(translateX(50px));
+	opacity: 0;
+
+	svg {
+		overflow: visible;
+	}
+
+	.accordion-item:hover &,
+	.accordion-item--open & {
+		@include transform(translateX(0px) rotate(0deg));
+		opacity: 1;
+	}
+
+
+
+	.accordion-item--open &,
+	.accordion-item:hover.accordion-item--open & {
+		@include transform(translateX(0px) rotate(180deg));
+	}
+
+	.accordion-item:hover & {
+		color: $color-hilight;
+	}
+}
+
+.accordion-title {
+	cursor: pointer;
+	padding: 25px 50px 25px 0px;
+	position: relative;
+	font-size: 24px;
+	font-weight: 300;
+	color: #333;
+	@include transition(color 0.3s);
+	&:hover {
+		color: $color-hilight;
+	}
+}
+
+
+.accordion-content {
+	overflow: hidden;
+	@include transition(height 0.5s);
+}
+
+.accordion-content__inner {
+	padding: 0px 0px 25px 0px;
+}

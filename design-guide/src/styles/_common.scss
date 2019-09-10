@@ -1,0 +1,224 @@
+
+
+html {
+	/*
+	overflow: hidden;
+  	height: 100%;
+  	*/
+}
+
+html, body {
+	min-height: 100%;
+}
+
+body {
+	@include font-style-body;
+	color: $color-text;
+	min-height: 100%;
+	background: #FAFAFA;
+	height: 100%;
+  	overflow: auto;
+}
+
+a {
+	color: #333;
+	font-style: none;
+	text-decoration: none;
+}
+
+
+a[href='http://comingsoon'] {
+	opacity: 0.4;
+	pointer-events: none;
+   cursor: default;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+main {
+	min-height: 100%;
+}
+
+
+.content {
+	background: #FAFAFA;
+}
+
+.content-inner {
+	padding-top: 80px;
+	@include centered;
+}
+
+.content-title {
+	@include font-style-h1;
+    margin-bottom: 30px;
+    color: $color-hilight;
+}
+
+
+
+.wysiwyg-content {
+	h3 {
+		font-weight: bold;
+	}
+
+	.heading-icon {
+		>* {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		> img {
+			width: 30px;
+			height: auto;
+			margin-right:10px;
+		}
+	}
+
+	.reference-link {
+		display: inline-block;
+	    font-size: 10px;
+	    vertical-align: top;
+	    margin-right: 3px;
+	}
+
+
+}
+
+.intro-text {
+	font-size: 20px;
+	margin-bottom: 40px;
+}
+
+
+
+// New Associate: Partner Story
+.wysiwyg-content {
+	p {
+		font-weight: 300;
+		font-size: 14px;
+	}
+	h3 {
+		margin: 20px 0;
+		font-weight: 500;
+		font-size: 16px;
+		color: #333;
+	}
+
+	$table-height: 500px;
+
+	.scrolling-table {
+		overflow-x: scroll;
+		height: $table-height;
+		position: relative;
+	}
+
+	.scrolling-table__body {
+		max-height: $table-height - 105px;
+		overflow-y: scroll;
+		position: absolute;
+		top: 90px;
+		left: 0px;
+	}
+
+	table, th, td {
+   		border: 1px solid #aaa;
+	 	vertical-align: middle;
+	}
+
+	th, td {
+		text-align: center;
+		min-width: 130px;
+		max-width: 130px;
+	}
+
+	td:first-child,
+	th:first-child {
+		min-width: 240px;
+		max-width: 240px;
+		@media (max-width: 600px) {
+			min-width: 90px;
+			max-width: 90px;
+		}
+	}
+
+	td:first-child {
+		font-size: 12px;
+		//background: #FFF;
+	}
+
+	th {
+		background: #3485cc;
+		color: #fff;
+		height: 90px;
+		padding: 0px 20px;
+	}
+
+	td {
+		padding: 20px 20px;
+	}
+
+	tr {
+		td:first-child, th {
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+
+		td:first-child {
+			background: #80a3c1;
+			color: #fff;
+			border-bottom: 1px solid rgba(#FFF, 0.2);
+			border-top: 1px solid rgba(#FFF, 0.2);
+		}
+
+		td:last-child {
+			background: #ffc34a;
+			color: #333;
+		}
+
+		th:last-child {
+			background: #f9b01d;
+			color: #333;
+		}
+
+		&:nth-child(even) {
+			td {
+				//background: rgb(218, 229, 239);
+			}
+			//background: rgba(52, 133, 204, 0.1);
+			background: #EAF3FA;
+
+		}
+
+		&:nth-child(odd) {
+			td {
+				//background: rgb(218, 229, 239);
+			}
+			background: #f9f9f9;
+		}
+
+	}
+
+	.table-highlight-header {
+		background: #ffcf6f;
+		color: #333;
+	}
+
+	.table-highlight {
+		background: #ffe3aa;
+		color: #333;
+	}
+}
+
+.logo-list {
+	display: flex;
+	flex-wrap: wrap;
+
+	img {
+		margin: 0px 2%;
+		width: auto !important;
+		height: 50px !important;
+	}
+}

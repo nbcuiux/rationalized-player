@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="assets/css/styles.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div id="root">
+			</div>
+		</div>
+		<script src="assets/js/crisp.js"></script>
+		
+		<script>
+
+			window.mountCrisp({
+				playlist: [
+					{
+					    "videoSrc": "assets/img/syfy-wire-drew-pearce.mp4",
+					    "coverImgSrc": "assets/img/syfy-wire-drew-pearce-poster.jpg",
+					    "title": "How Hotel Artemis Director Got Jodie Foster Out Of Retirement",
+					    "subtitle": "",
+					    "description": "Hotel Artemis is Drew Pierce's directorial debut and he got Jodie Foster to come out of retirement, Dave Bautista to play her second banana and Jeff Goldblum as a bad guy. But how?"
+					},
+					{
+					    "videoSrc": "assets/img/syfy-wire-the-history.mp4",
+					    "coverImgSrc": "assets/img/syfy-wire-the-history-poster.jpg",
+					    "title": "The History of Image Comics (So Much Damage) | Part 1: The Founding",
+					    "subtitle": "",
+					    "description": "In 1992, 7 comic book artists at the top of their game, including Todd McFarlane and Jim Lee, left Marvel comics to start their own company - and changed the entertainment industry as we know it."
+					},
+					{
+					    "videoSrc": "assets/img/syfy-krypton-its-torture.mp4",
+					    "coverImgSrc": "assets/img/syfy-krypton-its-torture-poster.jpg",
+					    "title": "It's Torture",
+					    "subtitle": "Krypton S1 E9",
+					    "description": "Daron-Vex gets a second helping of just deserts at the hands of former colleague Jax-Ur."
+					}
+				],
+				initialPlaylistIndex: 0,
+				aspectRatio: 1280/692,
+				endCardShowTime: 0,
+				playNextDelay: 14,
+				controlBarHoverTimeout: 2,
+				playerMode: "vp-mode-vod",
+				endCardLinks: [
+					{
+						text: "Some link 1",
+						url: "http://blah.com"
+					},
+					{
+						text: "Some link 2",
+						url: "http://blah.com"
+					}
+				],
+				adRoll: false,
+				sharePlatforms: ["facebook", "twitter", "googleplus"],
+				allowEmbed: true,
+				allowShare: true,
+				theme: {
+					colorHighlight: "#ebff00",
+					externalStylesheet: window.origin + "/assets/css/syfy-stylesheet.css"
+				} 
+			}, document.getElementById('root'));
+		</script>
+	</body>
+</html>

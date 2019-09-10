@@ -1,0 +1,47 @@
+
+
+
+$font-main: 'RobotoDraft', sans-serif;
+
+
+@mixin font-style-body {
+
+  font-family: $font-main;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  letter-spacing: .1px;
+  line-height: 1.6;
+
+
+}
+
+@mixin font-style-h3 {
+  font-size: 15px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+@mixin font-style-small-thick {
+  font-family: $font-main;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+@mixin font-style-h2 {
+  font-family: $font-main;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+@mixin font-style-h1 {
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+@mixin font-style-heading-medium {
+	font-weight: 400;
+	font-size: 18px;
+}

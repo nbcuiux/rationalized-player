@@ -1,0 +1,62 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{site.language_attributes}}> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" {{site.language_attributes}}> <!--<![endif]-->
+	<head>
+		{% include '_html-head.html' %}
+		{% block head %}
+		{% endblock %}
+	</head>
+
+	<script>
+		window.SITE_URL = "{{ site.url }}";
+		window.STATIC_URL = "{{ theme.link }}/assets";
+		window.MENU_DATA = {{ menu | json_encode }};
+		window.OPTIONS_DATA = {{ options | json_encode }};
+	</script>
+
+
+
+	<body class="{{body_class}}">
+
+		<main>
+			{% block content %}
+			{% endblock %}
+		</main>
+
+		{% include '_footer.html' %}
+		{{ function('wp_footer') }}
+		<script>
+			if (typeof Object.assign != 'function') {
+			  (function () {
+			    Object.assign = function (target) {
+			      'use strict';
+			      // We must check against these specific cases.
+			      if (target === undefined || target === null) {
+			        throw new TypeError('Cannot convert undefined or null to object');
+			      }
+
+			      var output = Object(target);
+			      for (var index = 1; index < arguments.length; index++) {
+			        var source = arguments[index];
+			        if (source !== undefined && source !== null) {
+			          for (var nextKey in source) {
+			            if (source.hasOwnProperty(nextKey)) {
+			              output[nextKey] = source[nextKey];
+			            }
+			          }
+			        }
+			      }
+			      return output;
+			    };
+			  })();
+			}
+		</script>
+		<script src="{{site.theme.link}}/assets/js/app.js"></script>
+
+		{% block scripts %}
+		{% endblock %}
+
+	</body>
+</html>

@@ -1,0 +1,19 @@
+
+
+@mixin centered {
+	margin: 0px auto;
+	padding-left: 80px;
+	padding-right: 80px;
+	max-width: 1320px;
+	@media (max-width: $bp-small) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+@mixin clip-path($clip) {
+  -webkit-clip-path: $clip;
+  -moz-clip-path: $clip;
+  -ms-clip-path: $clip;
+  clip-path: $clip;
+}

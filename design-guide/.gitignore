@@ -1,0 +1,13 @@
+
+
+.DS_Store
+node_modules
+wp-local-config.php
+site-config.json
+wordpress/wp-content/themes/nbcuux-portfolio/assets/css
+wordpress/wp-content/themes/nbcuux-portfolio/assets/js
+wordpress/wp-content/themes/nbcuux-portfolio/assets/fonts/icons*
+wordpress/wp-content/uploads
+*.orig
+*.map
+src/styles/_icons.scss

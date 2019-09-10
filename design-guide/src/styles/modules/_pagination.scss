@@ -1,0 +1,89 @@
+
+
+
+
+
+
+.pagination {
+	background-color: transparent;
+    border-top: 1px solid #eeeeee;
+    @include display(flex);
+    @include justify-content(space-between);
+}
+
+.pagination-back,
+.pagination-next {
+	padding: 30px 80px;
+	position: relative;
+	i {
+		position: absolute;
+		bottom: 30px;
+		color: rgba(0, 0, 0, 0.4);
+	}
+	@media (max-width: $bp-small) {
+		padding: 30px 50px;
+	}
+}
+
+.pagination-back {
+	text-align: left;
+	padding-right: 0px;
+	i {
+		left: 35px;
+		@media (max-width: $bp-small) {
+			left: 15px;
+		}
+	}
+}
+
+
+.pagination-next {
+	text-align: right;
+	padding-left: 0px;
+	i {
+		right: 35px;
+		@media (max-width: $bp-small) {
+			right: 15px;
+		}
+	}
+}
+
+.pagination-direction {
+	font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 1px;
+    color: rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+}
+
+
+.pagination-name {
+	@include font-style-h2;
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 22px;
+	color: rgba(0, 0, 0, 0.4);
+}
+
+// Splash page
+
+.page-template-splash-page {
+	#pagination {
+		position: fixed;
+		bottom: 0px;
+		width: 100%;
+	}
+
+	.pagination {
+		border-top: 1px solid rgba(#FFF, 0.1);
+	}
+	.pagination-direction {
+		color: rgba(#FFF, 0.4);
+	}
+
+	.pagination-name,
+	.pagination-back i,
+	.pagination-next i {
+		color: rgba(#FFF, 0.7);
+	}
+}

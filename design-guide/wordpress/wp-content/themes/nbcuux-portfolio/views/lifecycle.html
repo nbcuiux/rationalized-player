@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+
+{% block content %}
+	<div id="nav" class="theme-light"></div>
+	<div id="lifecycle">
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		var stages = {{ post.get_field('stages') | json_encode }}
+		var title = "{{ post.page_title }}";
+		var introImg = "{{ post.get_field('page_logo') }}";
+		var introColor = "{{ post.get_field('header_background_color') }}";
+		var keys = {{ post.get_field('key') | json_encode }};
+		var menu = {{ menu | json_encode }};
+	 	ReactDOM.render(
+	    	React.createElement(window.components.Lifecycle, { stages, title, introImg, keys, introColor }),
+	    	document.getElementById("lifecycle")
+	    );
+	    window.setupWidgets();
+	</script>
+{% endblock %}

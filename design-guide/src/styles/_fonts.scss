@@ -1,0 +1,51 @@
+
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'actions';
+  src:  url('.../fonts/actions.eot?xajqda');
+  src:  url('../fonts/actions.eot?xajqda#iefix') format('embedded-opentype'),
+    url('../fonts/actions.woff2?xajqda') format('woff2'),
+    url('../fonts/actions.ttf?xajqda') format('truetype'),
+    url('../fonts/actions.woff?xajqda') format('woff'),
+    url('../fonts/actions.svg?xajqda#actions') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="actions-"], [class*=" actions-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'actions' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.actions-close:before {
+  content: "\e900";
+}
+.actions-rotate:before {
+  content: "\e901";
+}

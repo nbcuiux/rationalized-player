@@ -1,0 +1,70 @@
+{% extends "_base.html" %}
+
+{% block content %}
+	{% include '_nav.html' %}
+	<div id="header">
+		<div class="header-wrapper">
+		</div>
+	</div>
+
+	<div class="index-landing__wrapper" style="background-color: {{ post.get_field('background_color') }}">
+		<div class="intro-text">
+			{{ post.intro_text }}
+		</div>
+		<div class="section-nav">
+			<div class="section-nav__heading">Contents</div>
+			<div class="section-nav__item-list">
+				{% for key in links|keys %}
+					<div class="section-nav__item">
+						<a href="#section-{{loop.index}}">{{ key }}</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="index-landing">
+			{% for key in links|keys %}
+				<div id="section-{{loop.index}}">
+				    <div class="index-landing__list-cat-title">{{ key }}</div>
+				    <div class="index-landing__list">
+				    {% for item in links[key] %}
+				    	<a href="{{ item.url }}" target="{{ item.target }}" class="index-landing__item">
+							<div class="index-landing__item-thumb">
+								<img src="{{ item.thumbnail }}" />
+							</div>
+							<div class="index-landing__item-title">
+								{{ item.title }}
+							</div>
+							<div class="index-landing__item-description">
+								{{ item.description }}
+							</div>
+						</a>
+				    {% endfor %}
+				    </div>
+				 </div>
+			{% endfor %}
+		</div>
+	</div>
+	<div id="pagination">
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	<script>
+
+		ReactDOM.render(
+	    	React.createElement(window.components.Pagination, {menu: window.MENU_DATA}),
+	    	document.getElementById("pagination")
+	    );
+
+	    var headerTitle = "{{ post.title }}";
+
+		ReactDOM.render(
+	    	React.createElement(window.components.Header, {headerTitle: headerTitle}),
+	    	document.getElementById("header")
+	    );	    
+
+		window.setupSectionNav();
+		window.setupWidgets();
+	    
+	</script>
+{% endblock %}

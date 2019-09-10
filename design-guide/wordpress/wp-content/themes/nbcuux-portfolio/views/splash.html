@@ -1,0 +1,109 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+	{% set links = post.get_field('links') %}
+
+	{% include '_nav.html' %}
+	<div id="search"></div>
+	<div
+		class="splash-wrapper"
+		style="background-color: {{ post.get_field('background_color') }}; background-image: url({{ TimberImage(post.background_image).src }})"
+	>
+		<div class="splash-segment__list">
+			<div class="splash-segment">
+				<div class="splash-segment__tilt">
+					<div class="splash-segment__shadow">
+					</div>
+					<div class="splash-segment__background" style="background-image: url({{ TimberImage(post.background_image).src }})">
+					</div>
+				</div>
+			</div>
+			<div class="splash-segment">
+				<div class="splash-segment__tilt">
+					<div class="splash-segment__shadow">
+					</div>
+					<div class="splash-segment__background" style="background-image: url({{ TimberImage(post.background_image).src }})">
+					</div>
+				</div>
+			</div>
+			<div class="splash-segment">
+				<div class="splash-segment__tilt">
+					<div class="splash-segment__shadow">
+					</div>
+					<div class="splash-segment__background" style="background-image: url({{ TimberImage(post.background_image).src }})">
+					</div>
+				</div>
+			</div>
+			<div class="splash-segment">
+				<div class="splash-segment__tilt">
+					<div class="splash-segment__shadow">
+					</div>
+					<div class="splash-segment__background" style="background-image: url({{ TimberImage(post.background_image).src }})">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="splash-links top">
+			{% for link in post.get_field('links') %}
+
+				<a href="{{ link.url }}" class="splash-link__item">
+					<div class="splash-link__inner">
+						{% if link.icon %}
+						<img src="{{ link.icon }}" />
+						{% endif %}
+						<div class="splash-link__caption">{{ link.caption }}</div>
+					</div>
+				</a>
+
+			{% endfor %}
+		</div>
+
+		<div class="splash-links">
+			{% for link in post.get_field('links') %}
+
+				<a href="{{ link.url }}" class="splash-link__item">
+					<div class="splash-link__inner">
+						{% if link.icon %}
+						<img src="{{ link.icon }}" />
+						{% endif %}
+						<div class="splash-link__caption">{{ link.caption }}</div>
+					</div>
+				</a>
+
+			{% endfor %}
+		</div>
+		<div class="splash-inner">
+			<img src="{{ post.get_field('logo_image') }}"/>
+			<div class="splash-text">
+				{{ post.main_text }}
+			</div>
+		</div>
+		<div class="ticker">
+			<div class="ticker-title">Editorial Rankings</div>
+			<div class="ticker-wrapper">
+				<ul class="ticker-inner">
+					<li>Fast saving: 4.8 out of 5 - Google-like search for stories/assets: 4.8 out of 5 - Quickly publishing stories: 4.7 - More organized search results: 4.6 out of 5 - Easily navigate to different parts of the CMS: 4.5 out of 5 - View the performance of a particular story: 4.4 out of 5 - Fast loading search results: 4.3 out of 5 - Being able to tell if the videos that are ready to be used: 4.3 out of 5 - Easily replacing the assets in the text editor: 4.2 out of 5 - Ability to edit CMS from mobile: 4.2 out of 5 - Quickly knowing the status of a specific story: 4.11 out of 5 - Easily embedding assets in the text editor of News Story content type: 4.1 out of 5 - Story autosaving: 4.1 out of 5 - Easily apply search filters: 4.1 out of 5 - Efficiently handing off stories/assets to the next team: 4 out of 5 - Easily copy and paste stories from other sources: 4 out of 5 - Easily rearranging the embedded assets in the text editor of News Story: 3.9 out of 5 - Easily embed social media into a story: 3.9 out of 5 - Easily see what the latest published stories are: 3.8 out of 5 - Understanding what each field does (e.g short description vs. shorter description): 3.8 out of 5 - Ability to do basic edits on photos, e.g. crop, level, contrast: 3.7 out of 5 - Receiving notification when the status of a story changes: 3.67 out of 5 - More visual search results of media items: 3.6 out of 5 - Ability to do basic edits on videos in the CMS, e.g. trim: 3.6 out of 5 - Ability to predict which story/topic would go viral via analytics: 3.56 out of 5 - Easily prioritize the list of things to do: 3.56 out of 5 - Easily share the stories to social media: 3.5 out of 5 - Ability to edit from networks other than NBCU_Corp: 3.5 out of 5 - Quickly getting the list of things to do: 3.44 out of 5 - More visual representation of the assets: 3.33 out of 5 - Easily look at what other news sources are saying: 3.33 out of 5 - Visual appearance of the CMS: 3 out of 5 - Not seeing the fields that are irrelevant to the content type: 3 out of 5</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	<script>
+
+		ReactDOM.render(
+	    	React.createElement(window.components.Search, window.MENU_DATA),
+	    	document.getElementById("search")
+	    );
+
+	    window.jQuery(".ticker-inner").marquee({
+	    	pauseSpeed: 1000
+	    });
+
+	    window.setupSplash();
+	    window.setupWidgets();
+
+	</script>
+{% endblock %}

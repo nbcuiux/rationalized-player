@@ -1,0 +1,148 @@
+
+
+
+.search {
+	position: fixed;
+	top: 15px;
+	right: 10px;
+	z-index: 50;
+	@include display(flex);
+	@include justify-content(flex-end);
+	//background: rgba(#FFF, 0.95);
+	padding-left: 20px;
+	i {
+		font-size: 20px;
+	    line-height: 35px;
+	    margin-right: 8px;
+	    color: $color-text;
+	}
+
+	@media (max-width: $bp-small) {
+		
+	}
+
+	&--open {
+		background: #FFF;
+	}
+
+}
+
+
+.search-input {
+	display: block;
+	width: 0px;
+	background: none;
+	border: none;
+	border-bottom: 1px solid transparent;
+	@include font-style-h2;
+	outline: none;
+	color: #333;
+	padding: 3px;
+	@include transition(width 0.8s);
+	@include placeholder {
+		font-style: italic;
+		color: #AAA;
+	}
+
+	.search--open & {
+		width: 400px;
+		border-color: #EAEAEA;
+	}
+
+	@media (max-width: $bp-small) {
+		.search--open & {
+			width: calc(100vw - 70px);
+		}
+	}
+}
+
+.search-list,
+.search-loader {
+	position: absolute;
+	right: 0px; 
+	top: 37px;
+	border: 1px solid rgba(#000, 0.1);
+	background: #FFF;
+	width: calc(100% - 40px);
+	box-shadow: 0px 0px 2px rgba(#000, 0.1);
+	background: #FFF;
+}
+
+.search-loader {
+	height: 60px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.search-list__header {
+	padding: 10px 15px;
+	@include font-style-small-thick;
+	border-bottom: 1px solid #EAEAEA;
+	background: #FAFAFA;
+	line-height: 1;
+	color: $color-text;
+}
+
+.search-list__list {
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.search-list__item {
+	border-bottom: #EAEAEA;
+	cursor: pointer;
+	@include transition(background 0.2s);
+	@include font-style-h3;
+	a {
+		@include display(flex);
+		@include justify-content(space-between);
+		@include align-items(center);
+		padding: 15px 15px;
+		@include transition(color 0.2s);
+		color: $color-grey-medium;
+		line-height: 1.5;
+	}
+	&:hover {
+		background: $color-hilight;
+		color: #FFF;
+		a {
+			color: #FFF;
+		}
+	}
+}
+
+
+.search-list__type {
+	font-size: 12px;
+	max-width: 40%;
+	margin-left: 10px;
+	text-align: right;
+}
+
+
+// Overide for splahs page
+.page-template-splash-page {
+	.search {
+		background: none;
+		i {
+			color: #FFF;
+		}
+	}
+
+	.search-input {
+		color: rgba(#FFF, 0.7);
+		.search--open & {
+			width: 400px;
+			border-color: #FAFAFA;
+		}
+		@include placeholder { 
+			color: rgba(#FFF, 0.7);
+		}
+	}
+
+	.search--open .search-input {
+		border-color: rgba(#FFF, 0.4);
+	}
+
+}
+

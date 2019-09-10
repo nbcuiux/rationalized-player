@@ -1,0 +1,30 @@
+{% extends "_base.html" %}
+
+{% block content %}
+	<svg height="5" width="5">
+		<defs>
+            <pattern id="timeline-pattern" patternUnits="userSpaceOnUse" width="5" height="5">
+            	<image xlink:href="{{ theme.link }}/assets/img/diagonal-pattern.png" width="5" height="5" x="0" y="0">
+            	</image>
+        	</pattern>
+        </defs>
+    </svg>
+
+	<div id="timeline">
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	<script>
+
+		var steps = {{ post.get_field('steps') | json_encode }};
+		var phases = {{ post.get_field('step_phases') | json_encode }};
+		var categories = {{ post.get_field('point_categories') | json_encode }};
+		var title = "{{ post.content|replace({"\n":' ', "\r":' '}) }}";
+
+	 	ReactDOM.render(
+	    	React.createElement(window.components.Timeline, {steps, phases, categories, title}),
+	    	document.getElementById("timeline")
+	    );
+	</script>
+{% endblock %}

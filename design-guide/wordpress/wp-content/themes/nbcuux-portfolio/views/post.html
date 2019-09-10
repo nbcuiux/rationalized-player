@@ -1,0 +1,93 @@
+{% extends "_base.html" %}
+
+{% block content %}
+	{% include '_nav.html' %}
+	<div id="header">
+		<div class="header-wrapper">
+		</div>
+	</div>
+	<div class="content">
+		<div class="content-inner">
+			<div class="content-title">
+				{{ post.title }}
+			</div>
+			<div class="section-nav">
+				<div class="section-nav__heading">Contents</div>
+				<div class="section-nav__item-list">
+				{% for section in post.get_field('sections') %}
+					<div class="section-nav__item">
+						<a href="#section-{{loop.index}}">{{ section.section_title }}</a>
+					</div>
+				{% endfor %}
+				</div>
+				<div class="section-nav__item">
+					<a href="#disqus_thread">Comments</a>
+				</div>
+			</div>
+			<div class="section-list">
+			{% for section in post.get_field('sections') %}
+				<div class="section-item section-item--{{section.horizontal_layout}}" id="section-{{loop.index}}">
+					<div class="section-item__title">
+						{% if section.icon %}
+						<i class="section-item__icon">
+							<img src="{{ section.icon }}" />
+						</i>
+						{% endif %}
+						{{ section.section_title }}
+					</div>
+					<div class="section-item__blocks">
+						{% for block in section.content_blocks %}
+							<div class="section-item__block wysiwyg-content">
+								{{ block.content }}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+			{{post.content}}
+			<div class="comments-wrapper">
+				<div id="disqus_thread"></div>
+			</div>
+		</div>
+	</div>
+	<div id="pagination">
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	
+	<script>
+		var disqus_config = function () {
+		    this.page.url = "{{ post.link }}";  // Replace PAGE_URL with your page's canonical URL variable
+		    this.page.identifier = "{{ post.guid }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		
+		(function() { // DON'T EDIT BELOW THIS LINE
+		    var d = document, s = d.createElement('script');
+		    s.src = '//nbcux.disqus.com/embed.js';
+		    s.setAttribute('data-timestamp', +new Date());
+		    (d.head || d.body).appendChild(s);
+		})();
+	</script>
+
+	<script>
+		
+	    var headerTitle = "{{ post.header_title }}";
+	    var pageTitle = "{{ post.title }}";
+
+		ReactDOM.render(
+	    	React.createElement(window.components.Header, {pageTitle: pageTitle, headerTitle: headerTitle}),
+	    	document.getElementById("header")
+	    );
+
+		ReactDOM.render(
+	    	React.createElement(window.components.Pagination, {menu: window.MENU_DATA}),
+	    	document.getElementById("pagination")
+	    );
+
+	    window.setupSectionNav();
+	   	window.setupWidgets();
+	    
+	</script>
+{% endblock %}
